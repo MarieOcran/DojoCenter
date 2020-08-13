@@ -1,0 +1,48 @@
+@model ActivityCenter
+
+<div class="row">
+    <div class="col-sm-8 offset-sm-2">
+        <div class="card">
+            <div class="card-header display-4">@Model.Title</div>
+                
+            <div class="card-body">
+                <div class="row">
+                    <div class="col sm 8">
+                        <p>Event Coordinator: @Model.Coordinator.FirstName @Model.Coordinator.LastName</p>
+                        <p>Description: @Model.Description</p>
+                    </div>
+                    <div class="col-sm-4"> 
+                            
+                        <ul class="list-group">
+                        
+                                
+                                <a class="btn btn-outline-success" asp-action="ToggleGroup" asp-route-activityId="@Model.ActivityId" asp-route-status="join">
+                                    <svg class="bi bi-person-plus-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                                    <path fill-rule="evenodd" d="M13 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0v-2z"/>
+                                    </svg> 
+                                </a>
+                                
+                                <a class="btn btn-outline-danger  " asp-action="ToggleGroup" asp-route-activityId="@Model.ActivityId" asp-route-status="leave">
+                                    <svg class="bi bi-person-dash-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5-.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+                                    </svg>
+                                </a>
+                            
+                     
+                                <li class="list-group-item bg-primary text-white">Guest:</li>
+                                
+                            @foreach (var w in Model.Participants)
+                            {
+                                <li class="list-group-item">@w.Host.FirstName @w.Host.LastName</li>
+                                
+                                
+                            }
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

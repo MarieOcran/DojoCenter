@@ -1,0 +1,8 @@
+/.vscode
+/appsettings.Development.json
+/appsettings.json
+/bin
+/FinalExam.csproj
+/Migrations
+/obj
+/Properties
